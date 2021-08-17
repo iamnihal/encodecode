@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container my-5">
+        <h5>URL Encode</h4>
+            <div class="row">
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="urlencode"
+                                id="input_urlencode" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" id="output_urlencode" rows="6"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>URL Decode</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="urldecode"
+                                id="input_urldecode" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_urldecode" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>Base64 Encode</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="base64encode"
+                                id="input_base64encode" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_base64encode" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>Base64 Decode</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="base64decode"
+                                id="input_base64decode" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_base64decode" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>HTML Entities Encode</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="htmlencode"
+                                id="input_htmlencode" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_htmlencode" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>HTML Entities Decode</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="htmldecode"
+                                id="input_htmldecode" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_htmldecode" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>MD5</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="md5generate"
+                                id="input_md5generate" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_md5generate" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>MD5 Decrypt</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="md5decrypt"
+                                id="input_md5decrypt" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_md5decrypt" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- <form method="POST" action=".">
+        {% csrf_token %}
+        <input type="text" name="textfield">
+        <button type="submit">Convert</button>
+    </form> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script>
+        $(document).ready(function () {
+            $("#input_urlencode").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        url_encode: $('#input_urlencode').val()
+                    },
+                    success: function (json) {
+                        $('#output_urlencode').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_urldecode").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        url_decode: $('#input_urldecode').val()
+                    },
+                    success: function (json) {
+                        $('#output_urldecode').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_base64encode").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        base64_encode: $('#input_base64encode').val()
+                    },
+                    success: function (json) {
+                        $('#output_base64encode').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_base64decode").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        base64_decode: $('#input_base64decode').val()
+                    },
+                    success: function (json) {
+                        $('#output_base64decode').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_htmlencode").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        html_encode: $('#input_htmlencode').val()
+                    },
+                    success: function (json) {
+                        $('#output_htmlencode').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_htmldecode").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        html_decode: $('#input_htmldecode').val()
+                    },
+                    success: function (json) {
+                        $('#output_htmldecode').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_md5generate").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        md5_generate: $('#input_md5generate').val()
+                    },
+                    success: function (json) {
+                        $('#output_md5generate').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_md5decrypt").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        md5_decrypt: $('#input_md5decrypt').val()
+                    },
+                    success: function (json) {
+                        $('#output_md5decrypt').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
