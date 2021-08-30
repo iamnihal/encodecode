@@ -465,7 +465,7 @@
                         "X-CSRFToken": "{{ csrf_token }}"
                     },
                     data: {
-                        sha256_generate: $('#input_sha512generate').val()
+                        sha512_generate: $('#input_sha512generate').val()
                     },
                     success: function (json) {
                         $('#output_sha512generate').text(json)
