@@ -155,6 +155,74 @@
                     </div>
                 </div>
             </div>
+            <div class="row my-5">
+                <h5>SHA1</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="sha1generate"
+                                id="input_sha1generate" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_sha1generate" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>SHA256</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="sha256generate"
+                                id="input_sha256generate" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_sha256generate" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>SHA512</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="sha512generate"
+                                id="input_sha512generate" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_sha512generate" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <h5>JSON Prettifier</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" aria-label="With textarea" name="json"
+                                id="input_json" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_json" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
     </div>
     <!-- <form method="POST" action=".">
         {% csrf_token %}
@@ -309,6 +377,7 @@
         $(document).ready(function () {
             $("#input_md5decrypt").on('input', function (event) {
                 event.preventDefault();
+                $('#output_md5decrypt').text("Decrypting Hash, Please Wait....")
                 $.ajax({
                     type: "POST",
                     url: "{% url 'main' %}",
@@ -320,6 +389,86 @@
                     },
                     success: function (json) {
                         $('#output_md5decrypt').text(json)
+                    }
+                });
+                // return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_json").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        json_data: $('#input_json').val()
+                    },
+                    success: function (json) {
+                        $('#output_json').text(json)
+                    }
+                });
+                // return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_sha1generate").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        sha1_generate: $('#input_sha1generate').val()
+                    },
+                    success: function (json) {
+                        $('#output_sha1generate').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_sha256generate").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        sha256_generate: $('#input_sha256generate').val()
+                    },
+                    success: function (json) {
+                        $('#output_sha256generate').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_sha512generate").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        sha256_generate: $('#input_sha512generate').val()
+                    },
+                    success: function (json) {
+                        $('#output_sha512generate').text(json)
                     }
                 });
                 return false; //<---- move it here
