@@ -98,13 +98,42 @@ def sha512generate(request):
     return HttpResponse(sha512Text.hexdigest())
 
 
+def csp_evaluate(request):
+    cspurl = request.POST.get("url")
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+        "Origin": "https://csp-evaluator.withgoogle.com",
+        "DNT": "1",
+        "Connection": "keep-alive",
+        "Referer": "https://csp-evaluator.withgoogle.com/",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "TE": "trailers",
+    }
+
+    data = {"url": f'{cspurl}'}
+    response = requests.post(
+        "https://csp-evaluator.withgoogle.com/getCSP", headers=headers, data=data
+    )
+    
+    if "error" in response.text:
+        return HttpResponse("No CSP headers found for this domain!")
+    else:
+        return HttpResponse(response.text)
+
+
 def main(request):
     if request.method == "GET":
         return index(request)
     elif request.method == "POST" and "url_encode" in request.POST:
         return urlencode(request)
     elif request.method == "POST" and "url_decode" in request.POST:
-        print("Inside decode")
         return urldecode(request)
     elif request.method == "POST" and "base64_encode" in request.POST:
         return base64encode(request)
@@ -126,3 +155,5 @@ def main(request):
         return sha512generate(request)
     elif request.method == "POST" and "json_data" in request.POST:
         return json_prettify(request)
+    elif request.method == "POST" and "url" in request.POST:
+        return csp_evaluate(request)

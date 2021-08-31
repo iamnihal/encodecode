@@ -223,16 +223,25 @@
                     </div>
                 </div>
             </div>
+            <div class="row my-5">
+                <h5>CSP Evaluator</h5>
+                <div class="col">
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control" placeholder="Enter URL" aria-label="With textarea" name="sha512generate"
+                                id="input_cspurl" rows="6"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-lg">
+                        <textarea class="form-control" aria-label="With textarea" id="output_cspvalue" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
     </div>
-    <!-- <form method="POST" action=".">
-        {% csrf_token %}
-        <input type="text" name="textfield">
-        <button type="submit">Convert</button>
-    </form> -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script>
         $(document).ready(function () {
             $("#input_urlencode").on('input', function (event) {
@@ -469,6 +478,26 @@
                     },
                     success: function (json) {
                         $('#output_sha512generate').text(json)
+                    }
+                });
+                return false; //<---- move it here
+            });
+        });
+
+        $(document).ready(function () {
+            $("#input_cspurl").on('input', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'main' %}",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    data: {
+                        url: $('#input_cspurl').val()
+                    },
+                    success: function (json) {
+                        $('#output_cspvalue').text(json)
                     }
                 });
                 return false; //<---- move it here
