@@ -13,6 +13,20 @@
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+        #scrollToTopBtn {
+            background-color: black;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 48px;
+            width: 48px;
+            float: right;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -300,6 +314,10 @@
             </div>
     </div>
 
+    <footer>
+        <button class="m-2" title="Scroll Up" id="scrollToTopBtn">☝️</button>
+    </footer>
+
     <script>
         $(document).ready(function () {
             $("#input_urlencode").on('input', function (event) {
@@ -550,6 +568,21 @@
         });
     </script>
 
+    <script>
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn")
+        var rootElement = document.documentElement
+
+        function scrollToTop() {
+            // Scroll to top logic
+            rootElement.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        }
+        scrollToTopBtn.addEventListener("click", scrollToTop)
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
@@ -560,4 +593,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     -->
 </body>
+
 </html>
