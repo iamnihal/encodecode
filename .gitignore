@@ -1,0 +1,16 @@
+.vscode/
+runserver.sh
+__pycache__/
+*.py[cod]
+
+### Django ###
+*.log
+*.pot
+*.pyc
+local_settings.py
+**/migrations
+**/__pycache__
+**/.DS_Store
+
+.env
+db.sqlite3
