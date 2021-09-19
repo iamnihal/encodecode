@@ -58,3 +58,7 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 
 Any contributions you make are **greatly appreciated**.
 
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
