@@ -1,4 +1,4 @@
-<h1 align="center">EncoDecoder: A Web Utitliy to Encode/Decode various schemes</h1>
+<h1 align="center">EncoDecode: A Web Utitliy to Encode/Decode various schemes</h1>
 
 [![version](https://img.shields.io/badge/version-1.0-red)](https://www.github.com/iamnihal/encodecode)
 [![python](https://img.shields.io/badge/python-3.8.1-blue.svg?logo=python&labelColor=yellow)](https://www.python.org/downloads/)
