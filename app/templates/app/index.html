@@ -5,8 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -319,256 +318,6 @@
     </footer>
 
     <script>
-        $(document).ready(function () {
-            $("#input_urlencode").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        url_encode: $('#input_urlencode').val()
-                    },
-                    success: function (json) {
-                        $('#output_urlencode').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_urldecode").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        url_decode: $('#input_urldecode').val()
-                    },
-                    success: function (json) {
-                        $('#output_urldecode').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_base64encode").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        base64_encode: $('#input_base64encode').val()
-                    },
-                    success: function (json) {
-                        $('#output_base64encode').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_base64decode").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        base64_decode: $('#input_base64decode').val()
-                    },
-                    success: function (json) {
-                        $('#output_base64decode').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_htmlencode").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        html_encode: $('#input_htmlencode').val()
-                    },
-                    success: function (json) {
-                        $('#output_htmlencode').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_htmldecode").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        html_decode: $('#input_htmldecode').val()
-                    },
-                    success: function (json) {
-                        $('#output_htmldecode').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_md5generate").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        md5_generate: $('#input_md5generate').val()
-                    },
-                    success: function (json) {
-                        $('#output_md5generate').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_md5decrypt").on('input', function (event) {
-                event.preventDefault();
-                $('#output_md5decrypt').text("Decrypting Hash, Please Wait....")
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        md5_decrypt: $('#input_md5decrypt').val()
-                    },
-                    success: function (json) {
-                        $('#output_md5decrypt').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_json").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        json_data: $('#input_json').val()
-                    },
-                    success: function (json) {
-                        $('#output_json').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_sha1generate").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        sha1_generate: $('#input_sha1generate').val()
-                    },
-                    success: function (json) {
-                        $('#output_sha1generate').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_sha256generate").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        sha256_generate: $('#input_sha256generate').val()
-                    },
-                    success: function (json) {
-                        $('#output_sha256generate').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_sha512generate").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        sha512_generate: $('#input_sha512generate').val()
-                    },
-                    success: function (json) {
-                        $('#output_sha512generate').text(json)
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function () {
-            $("#input_cspurl").on('input', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'main' %}",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}"
-                    },
-                    data: {
-                        url: $('#input_cspurl').val()
-                    },
-                    success: function (json) {
-                        $('#output_cspvalue').text(json)
-                    }
-                });
-            });
-        });
-    </script>
-
-    <script>
         var scrollToTopBtn = document.getElementById("scrollToTopBtn")
         var rootElement = document.documentElement
 
@@ -581,17 +330,258 @@
         }
         scrollToTopBtn.addEventListener("click", scrollToTop)
     </script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    <script>
+    $(document).ready(function () {
+        $("#input_urlencode").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    url_encode: $('#input_urlencode').val()
+                },
+                success: function (json) {
+                    $('#output_urlencode').text(json)
+                }
+            });
+        });
+    });
 
+    $(document).ready(function () {
+        $("#input_urldecode").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    url_decode: $('#input_urldecode').val()
+                },
+                success: function (json) {
+                    $('#output_urldecode').text(json)
+                }
+            });
+        });
+    });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-    </script>
+    $(document).ready(function () {
+        $("#input_base64encode").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    base64_encode: $('#input_base64encode').val()
+                },
+                success: function (json) {
+                    $('#output_base64encode').text(json)
+                }
+            });
+        });
+    });
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    -->
+    $(document).ready(function () {
+        $("#input_base64decode").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    base64_decode: $('#input_base64decode').val()
+                },
+                success: function (json) {
+                    $('#output_base64decode').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_htmlencode").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    html_encode: $('#input_htmlencode').val()
+                },
+                success: function (json) {
+                    $('#output_htmlencode').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_htmldecode").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    html_decode: $('#input_htmldecode').val()
+                },
+                success: function (json) {
+                    $('#output_htmldecode').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_md5generate").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    md5_generate: $('#input_md5generate').val()
+                },
+                success: function (json) {
+                    $('#output_md5generate').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_md5decrypt").on('input', function (event) {
+            event.preventDefault();
+            $('#output_md5decrypt').text("Decrypting Hash, Please Wait....")
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    md5_decrypt: $('#input_md5decrypt').val()
+                },
+                success: function (json) {
+                    $('#output_md5decrypt').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_json").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    json_data: $('#input_json').val()
+                },
+                success: function (json) {
+                    $('#output_json').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_sha1generate").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    sha1_generate: $('#input_sha1generate').val()
+                },
+                success: function (json) {
+                    $('#output_sha1generate').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_sha256generate").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    sha256_generate: $('#input_sha256generate').val()
+                },
+                success: function (json) {
+                    $('#output_sha256generate').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_sha512generate").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    sha512_generate: $('#input_sha512generate').val()
+                },
+                success: function (json) {
+                    $('#output_sha512generate').text(json)
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#input_cspurl").on('input', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'main' %}",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    url: $('#input_cspurl').val()
+                },
+                success: function (json) {
+                    $('#output_cspvalue').text(json)
+                }
+            });
+        });
+    });
+</script>
 </body>
-
 </html>
