@@ -15,6 +15,11 @@ It contains the following utilities:-
 - JSON Prettifier & CSP Evaluator.
 ```
 ## Demo: [Live](https://encodeapp.herokuapp.com)
+`
+Note:- I've created this same application but in pure JavaScript which makes it lightweight and fast. Check it out here:-
+`
+[EncoDecode-js](https://github.com/iamnihal/encodecode-js)
+
 
 ![Preview](https://user-images.githubusercontent.com/37813784/133926608-1c6aef1a-d1ae-4e2c-90c4-6fc817c9d31c.png)
 
